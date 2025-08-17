@@ -51,6 +51,34 @@ vsse16.v        nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5 vs3 6..0=0x27
 vsse32.v        nf 28=0 27..26=2 vm rs2 rs1 14..12=0x6 vs3 6..0=0x27
 vsse64.v        nf 28=0 27..26=2 vm rs2 rs1 14..12=0x7 vs3 6..0=0x27
 
+#************************Custom************************#
+# Vector shift load/store Instructions
+vlshfte64.v     31..28=1 27..26=2 vm rs2 rs1 14..12=0x7  vd 6..0=0x07
+vsshfte64.v     31..28=1 27..26=2 vm rs2 rs1 14..12=0x7 vs3 6..0=0x27
+vlc8to32.v      nf 28=1 27..26=0 vm 24..20=0 rs1 14..12=0x6  vd 6..0=0x07
+vstrcmp.vv      31..26=0x3e vm vs2 vs1 14..12=0x0 vd 6..0=0x57
+vlshftseg2e64.v 31..28=3 27..26=2 vm rs2 rs1 14..12=0x7 vd 6..0=0x07
+vlshftseg3e64.v 31..28=5 27..26=2 vm rs2 rs1 14..12=0x7 vd 6..0=0x07
+vlshftseg4e64.v 31..28=7 27..26=2 vm rs2 rs1 14..12=0x7 vd 6..0=0x07
+vsshftseg2e64.v 31..28=3 27..26=2 vm rs2 rs1 14..12=0x7 vd 6..0=0x27
+vsshftseg3e64.v 31..28=5 27..26=2 vm rs2 rs1 14..12=0x7 vd 6..0=0x27
+vsshftseg4e64.v 31..28=7 27..26=2 vm rs2 rs1 14..12=0x7 vd 6..0=0x27
+
+
+# vle8.v         nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0  vd 6..0=0x07
+# vlshfte64.v     31..28=1 27..26=2 vm rs2 rs1 14..12=0x7  vd 6..0=0x07
+# vsshfte64.v     31..28=1 27..26=2 vm rs2 rs1 14..12=0x7 vs3 6..0=0x27
+# vmspr.vx        31..26=0x30 vm vs2 rs1 14..12=0x4 vd 6..0=0x57
+# vpidldeb64.vx   31..26=0b010001 vm vs2 rs1 14..12=0x6 vd 6..0=0x57
+# vpidsteb64.vx   31..26=0b010011 vm vs2 rs1 14..12=0x6 vd 6..0=0x07
+
+
+# Vector mask set priority
+vmspr.vx        31..26=0x30 vm vs2 rs1 14..12=0x4 vd 6..0=0x57
+#vand.vv         31..26=0x09 vm vs2 vs1 14..12=0x0 vd 6..0=0x57
+#vmseq.vv       31..26=0x18 vm vs2 vs1 14..12=0x0 vd 6..0=0x57
+
+
 # Vector Indexed-Ordered Instructions (including segment part)
 # https://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#76-vector-indexed-instructions
 vloxei8.v        nf 28=0 27..26=3 vm vs2 rs1 14..12=0x0  vd 6..0=0x07
